@@ -5,11 +5,12 @@ const userRouter = require('./routes/user');
 const postRouter = require('./routes/post');
 const mongoose = require('mongoose');
 const PORT = 3300;
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 mongoose
-.connect(
-  "mongodb+srv://nks854338:Nandani50%25@students.a0ydx.mongodb.net/task35"
-)
+.connect(process.env.MONGODB_URL)
 .then(() => console.log("MongoDB connected"))
 .catch((err) => console.error("Mongo Error", err));
 
